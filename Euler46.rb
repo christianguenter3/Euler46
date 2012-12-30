@@ -30,24 +30,18 @@ class Euler46
   
 private
   def _calculate
-    @odd_composites.each do |odd_c|
-      found = false
-      @double_square.each do |double_square|
-        if found == false
-          @primes.each do |prime|
-             if prime + double_square == odd_c
-               found = true 
-               break
-             end
-          end
-        end
-      end
-      return odd_c if found == false
-    end
+    @odd_composites.each { |odd_c| return odd_c if _square_processing(odd_c) == false}
     return false
   end
   
-  def _square_processing
-    
+  def _square_processing(odd_composite)
+    found = false
+    @double_square.each { |double_square| found = _primes_processing(odd_composite, double_square) if found == false }
+    return found
+  end
+  
+  def _primes_processing(odd_composite, double_square)
+    @primes.each { |prime| return true if prime + double_square == odd_composite }
+    return false
   end
 end
