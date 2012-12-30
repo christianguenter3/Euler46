@@ -15,14 +15,14 @@ class TestEuler46 < Test::Unit::TestCase
     PRIME_TEST_CASES.each { |input, output| assert_equal(output,@euler46.get_prime_upto(input))}
   end
   
-  DOUBLE_SQUARE_TEST_CASES = { 30 => [4,8,18,32]}
+  DOUBLE_SQUARE_TEST_CASES = { 30 => [2,8,18,32]}
   
   def test_get_double_square_upto
     DOUBLE_SQUARE_TEST_CASES.each { |input, output| assert_equal(output,@euler46.get_double_square_upto(input))}
   end
   
   def test_get_first_non_goldbach
-    assert_equal(0,@euler46.get_first_non_goldbach(10_000))
+    assert_equal(5777,@euler46.get_first_non_goldbach(10_000))
   end
   
   def setup
